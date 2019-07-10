@@ -1,10 +1,19 @@
 public class Topping {
+    final static double MEAT_CALORIES = 1.2;
+    final static double VEGGIES_CALORIES = 0.8;
+    final static double CHEESE_CALORIES = 1.1;
+    final static double SAUCE_CALORIES = 0.9;
+
     private String toppingType;
     private double weight;
 
     public Topping(String toppingType, double weight) {
         this.setToppingType(toppingType);
         this.setWeight(weight);
+    }
+
+    private String getToppingType() {
+        return this.toppingType;
     }
 
     private void setToppingType(String toppingType) {
@@ -24,6 +33,7 @@ public class Topping {
 
             default:
                 validateToppings(toppingType);
+                break;
         }
     }
 
@@ -31,8 +41,31 @@ public class Topping {
         if (weight < 1 || weight > 50) {
             validateWeight(this.toppingType);
         }
-//TODO implement modifiers
-        this.weight = weight * 2;
+
+        this.weight = weight;
+    }
+
+    public double calculateCalories() {
+        return (this.weight * 2) * toppingModifiers(this.getToppingType());
+    }
+
+    private double toppingModifiers(String toppingType) {
+        double toppingModifier = 1;
+        switch (toppingType) {
+            case "meat":
+                toppingModifier = MEAT_CALORIES;
+                break;
+            case "veggies":
+                toppingModifier = VEGGIES_CALORIES;
+                break;
+            case "cheese":
+                toppingModifier = CHEESE_CALORIES;
+                break;
+            case "sauce":
+                toppingModifier = SAUCE_CALORIES;
+                break;
+        }
+        return toppingModifier;
     }
 
     private void validateToppings(String input) {
