@@ -4,7 +4,7 @@ import java.util.List;
 public class Pizza {
     private String name;
     private Dough dough;
-    private List<Toppings> toppings;
+    private List<Topping> toppings;
 
     public Pizza(String name, int numberOfToppings) {
         this.setName(name);
@@ -26,6 +26,10 @@ public class Pizza {
 
     public void setDough(Dough dough) {
         this.dough = dough;
+    }
+
+    public void addTopping(Topping topping) {
+        this.toppings.add(topping);
     }
 
     private void setToppings(int numberOfToppings) {
