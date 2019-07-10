@@ -1,8 +1,8 @@
 public class Topping {
-    final static double MEAT_CALORIES = 1.2;
-    final static double VEGGIES_CALORIES = 0.8;
-    final static double CHEESE_CALORIES = 1.1;
-    final static double SAUCE_CALORIES = 0.9;
+    private final static double MEAT_CALORIES = 1.2;
+    private final static double VEGGIES_CALORIES = 0.8;
+    private final static double CHEESE_CALORIES = 1.1;
+    private final static double SAUCE_CALORIES = 0.9;
 
     private String toppingType;
     private double weight;
@@ -28,7 +28,7 @@ public class Topping {
                 break;
 
             default:
-                validateToppings(toppingType);
+                validateToppings(this.toppingType);
                 break;
         }
     }

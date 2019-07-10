@@ -1,9 +1,9 @@
 public class Dough {
-    final static double WHITE_DEFAULT_CALORIES = 1.5;
-    final static double WHOLEGRAIN_DEFAULT_CALORIES = 1.0;
-    final static double CRISPY_DEFAULT_CALORIES = 0.9;
-    final static double CHEWY_DEFAULT_CALORIES = 1.1;
-    final static double HOMEMADE_DEFAULT_CALORIES = 1.0;
+    private final static double WHITE_DEFAULT_CALORIES = 1.5;
+    private final static double WHOLEGRAIN_DEFAULT_CALORIES = 1.0;
+    private final static double CRISPY_DEFAULT_CALORIES = 0.9;
+    private final static double CHEWY_DEFAULT_CALORIES = 1.1;
+    private final static double HOMEMADE_DEFAULT_CALORIES = 1.0;
 
     private String flourType;
     private String bakingTechnique;
@@ -57,8 +57,8 @@ public class Dough {
     public double calculateCalories() {
         double calories = (weight * 2);
 
-        calories *= doughModifiersByType(this.flourType);
-        calories *= doughModifiersByTechnique(this.bakingTechnique);
+        calories *= this.doughModifiersByType(this.flourType);
+        calories *= this.doughModifiersByTechnique(this.bakingTechnique);
 
         return calories;
 
