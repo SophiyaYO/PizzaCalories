@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Pizza {
     private String name;
-    private Dough dought;
+    private Dough dough;
     private List<Toppings> toppings;
 
     public Pizza(String name, int numberOfToppings) {
@@ -22,6 +22,10 @@ public class Pizza {
 
     public String getName() {
         return this.name;
+    }
+
+    public void setDough(Dough dough) {
+        this.dough = dough;
     }
 
     private void setToppings(int numberOfToppings) {
