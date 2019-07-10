@@ -25,7 +25,7 @@ public class Pizza {
             validateNumberOfToppings();
         }
 
-        this.toppings = new ArrayList<>(toppings);
+        this.toppings = new ArrayList<>(numberOfToppings);
     }
 
     public String getName() {
@@ -37,9 +37,23 @@ public class Pizza {
     }
 
     public void addTopping(Topping topping) {
+        if (this.toppings.size() > 10) {
+            validateNumberOfToppings();
+        }
         this.toppings.add(topping);
     }
 
+    public double getOverallCalories() {
+        double overallCalories = 0d;
+        overallCalories += this.dough.calculateCalories();
+
+        overallCalories += this.toppings
+                .stream()
+                .mapToDouble(Topping::calculateCalories)
+                .sum();
+
+        return overallCalories;
+    }
 
     private void validatePizzaName() {
         throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
@@ -47,17 +61,5 @@ public class Pizza {
 
     private void validateNumberOfToppings() {
         throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
-    }
-
-
-    public double getOverallCalories() {
-        double overallCalories = 0d;
-        overallCalories += this.dough.calculateCalories();
-
-        for (Topping topping : this.toppings) {
-            overallCalories += topping.calculateCalories();
-        }
-
-        return overallCalories;
     }
 }
