@@ -55,6 +55,15 @@ public class Pizza {
         return overallCalories;
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+                "%s - %.2f",
+                this.getName(),
+                this.getOverallCalories()
+        );
+    }
+
     private void validatePizzaName() {
         throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
     }
