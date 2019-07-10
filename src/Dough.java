@@ -19,10 +19,10 @@ public class Dough {
 
     private void setFlourType(String flourType) {
         switch (flourType) {
-            case "white":
+            case "White":
                 typeModifier = WHITE_DEFAULT_CALORIES;
                 break;
-            case "wholegrain":
+            case "Wholegrain":
                 typeModifier = WHOLEGRAIN_DEFAULT_CALORIES;
                 break;
             default:
@@ -35,13 +35,13 @@ public class Dough {
 
     private void setBakingTechnique(String bakingTechnique) {
         switch (bakingTechnique) {
-            case "crispy":
+            case "Crispy":
                 techniqueModifier = CRISPY_DEFAULT_CALORIES;
                 break;
-            case "chewy":
+            case "Chewy":
                 techniqueModifier = CHEWY_DEFAULT_CALORIES;
                 break;
-            case "homemade":
+            case "Homemade":
                 techniqueModifier = HOMEMADE_DEFAULT_CALORIES;
                 break;
             default:

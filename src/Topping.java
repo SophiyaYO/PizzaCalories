@@ -14,16 +14,16 @@ public class Topping {
 
     private void setToppingType(String toppingType) {
         switch (toppingType) {
-            case "meat":
+            case "Meat":
                 this.toppingType = toppingType;
                 break;
-            case "veggies":
+            case "Veggies":
                 this.toppingType = toppingType;
                 break;
-            case "cheese":
+            case "Cheese":
                 this.toppingType = toppingType;
                 break;
-            case "sauce":
+            case "Sauce":
                 this.toppingType = toppingType;
                 break;
 
@@ -52,16 +52,16 @@ public class Topping {
     private double toppingModifiers(String toppingType) {
         double toppingModifier = 0d;
         switch (toppingType) {
-            case "meat":
+            case "Meat":
                 toppingModifier = MEAT_CALORIES;
                 break;
-            case "veggies":
+            case "Veggies":
                 toppingModifier = VEGGIES_CALORIES;
                 break;
-            case "cheese":
+            case "Cheese":
                 toppingModifier = CHEESE_CALORIES;
                 break;
-            case "sauce":
+            case "Sauce":
                 toppingModifier = SAUCE_CALORIES;
                 break;
         }
