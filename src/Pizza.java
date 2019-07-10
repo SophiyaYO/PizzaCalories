@@ -28,16 +28,21 @@ public class Pizza {
         this.dough = dough;
     }
 
-    public void addTopping(Topping topping) {
-        this.toppings.add(topping);
-    }
-
     private void setToppings(int numberOfToppings) {
         if (numberOfToppings < 0 || numberOfToppings > 10) {
             validateNumberOfToppings();
         }
 
         this.toppings = new ArrayList<>(toppings);
+    }
+
+    public void addTopping(Topping topping) {
+        this.toppings.add(topping);
+    }
+
+    //TODO return here after creating the Dough logic
+    public double getOverallCalories() {
+        return 0;
     }
 
     private void validatePizzaName() {
