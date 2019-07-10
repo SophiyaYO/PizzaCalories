@@ -20,20 +20,20 @@ public class Pizza {
         this.name = name;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setDough(Dough dough) {
-        this.dough = dough;
-    }
-
     private void setToppings(int numberOfToppings) {
         if (numberOfToppings < 0 || numberOfToppings > 10) {
             validateNumberOfToppings();
         }
 
         this.toppings = new ArrayList<>(toppings);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setDough(Dough dough) {
+        this.dough = dough;
     }
 
     public void addTopping(Topping topping) {
