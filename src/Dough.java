@@ -48,6 +48,11 @@ public class Dough {
         this.weight = weight;
     }
 
+    //TODO do the Toppings and then this
+    public double calculateCalories() {
+        return 0;
+    }
+
     private void validateDoughWeight() {
         throw new IllegalArgumentException("Dough weight should be in the range [1..200].");
     }
