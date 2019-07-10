@@ -54,9 +54,47 @@ public class Dough {
         this.weight = weight;
     }
 
-    //TODO do the Toppings and then this
     public double calculateCalories() {
-        return 0;
+        double calories = (weight * 2);
+
+        calories *= doughModifiersByType(this.flourType);
+        calories *= doughModifiersByTechnique(this.bakingTechnique);
+
+        return calories;
+
+    }
+
+    private double doughModifiersByTechnique(String bakingTechnique) {
+        double techniqueModifier = 0d;
+
+        switch (bakingTechnique) {
+            case "crispy":
+                techniqueModifier = CRISPY_DEFAULT_CALORIES;
+                break;
+            case "chewy":
+                techniqueModifier = CHEWY_DEFAULT_CALORIES;
+                break;
+            case "homemade":
+                techniqueModifier = HOMEMADE_DEFAULT_CALORIES;
+                break;
+        }
+
+        return techniqueModifier;
+    }
+
+    private double doughModifiersByType(String flourType) {
+        double typeModifier = 0d;
+
+        switch (flourType) {
+            case "white":
+                typeModifier = WHITE_DEFAULT_CALORIES;
+                break;
+            case "wholegrain":
+                typeModifier = WHOLEGRAIN_DEFAULT_CALORIES;
+                break;
+        }
+
+        return typeModifier;
     }
 
     private void validateDoughWeight() {
