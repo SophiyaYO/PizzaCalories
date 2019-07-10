@@ -1,4 +1,10 @@
 public class Dough {
+    final static double WHITE_DEFAULT_CALORIES = 1.5;
+    final static double WHOLEGRAIN_DEFAULT_CALORIES = 1.0;
+    final static double CRISPY_DEFAULT_CALORIES = 0.9;
+    final static double CHEWY_DEFAULT_CALORIES = 1.1;
+    final static double HOMEMADE_DEFAULT_CALORIES = 1.0;
+
     private String flourType;
     private String bakingTechnique;
     private double weight;
