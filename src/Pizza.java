@@ -40,9 +40,16 @@ public class Pizza {
         this.toppings.add(topping);
     }
 
-    //TODO return here after creating the Dough logic
+
     public double getOverallCalories() {
-        return 0;
+        double overallCalories = 0d;
+        overallCalories += this.dough.calculateCalories();
+
+        for (Topping topping : this.toppings) {
+            overallCalories += topping.calculateCalories();
+        }
+
+        return overallCalories;
     }
 
     private void validatePizzaName() {
