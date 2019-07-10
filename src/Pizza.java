@@ -8,7 +8,19 @@ public class Pizza {
 
     public Pizza(String name, int numberOfToppings) {
         this.setName(name);
-        this.toppings = new ArrayList<>(numberOfToppings);
+        this.setToppings(numberOfToppings);
+    }
+
+    private void setToppings(int numberOfToppings) {
+        if (numberOfToppings < 0 || numberOfToppings > 10) {
+            validateNumberOfToppings();
+        }
+
+        this.toppings = new ArrayList<>(toppings);
+    }
+
+    private void validateNumberOfToppings() {
+        throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
     }
 
     private void setName(String name) {
