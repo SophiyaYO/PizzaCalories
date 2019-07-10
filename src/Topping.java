@@ -28,7 +28,7 @@ public class Topping {
                 break;
 
             default:
-                validateToppings(this.toppingType);
+                validateToppings(toppingType);
                 break;
         }
     }
@@ -50,7 +50,7 @@ public class Topping {
     }
 
     private double toppingModifiers(String toppingType) {
-        double toppingModifier = 1;
+        double toppingModifier = 0d;
         switch (toppingType) {
             case "meat":
                 toppingModifier = MEAT_CALORIES;

@@ -20,16 +20,17 @@ public class Dough {
     private void setFlourType(String flourType) {
         switch (flourType) {
             case "white":
-                this.flourType = flourType;
+                typeModifier = WHITE_DEFAULT_CALORIES;
                 break;
             case "wholegrain":
-                this.flourType = flourType;
+                typeModifier = WHOLEGRAIN_DEFAULT_CALORIES;
                 break;
             default:
                 validateFlourType();
                 break;
 
         }
+        this.flourType = flourType;
     }
 
     private void setBakingTechnique(String bakingTechnique) {
@@ -60,28 +61,16 @@ public class Dough {
     }
 
     public double calculateCalories() {
-        double calories = (weight * 2);
+        double calories = (this.getWeight() * 2);
 
-        calories *= this.doughModifiersByType(this.flourType);
+        calories *= this.typeModifier;
         calories *= this.techniqueModifier;
 
         return calories;
-
     }
 
-    private double doughModifiersByType(String flourType) {
-        double typeModifier = 0d;
-
-        switch (flourType) {
-            case "white":
-                typeModifier = WHITE_DEFAULT_CALORIES;
-                break;
-            case "wholegrain":
-                typeModifier = WHOLEGRAIN_DEFAULT_CALORIES;
-                break;
-        }
-
-        return typeModifier;
+    private double getWeight() {
+        return this.weight;
     }
 
     private void validateDoughWeight() {

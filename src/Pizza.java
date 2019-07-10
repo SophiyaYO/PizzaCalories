@@ -28,12 +28,12 @@ public class Pizza {
         this.toppings = new ArrayList<>(numberOfToppings);
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public void setDough(Dough dough) {
         this.dough = dough;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void addTopping(Topping topping) {
