@@ -8,6 +8,8 @@ public class Dough {
     private String flourType;
     private String bakingTechnique;
     private double weight;
+    private double typeModifier;
+    private double techniqueModifier;
 
     public Dough(String flourType, String bakingTechnique, double weight) {
         this.setFlourType(flourType);
@@ -33,17 +35,20 @@ public class Dough {
     private void setBakingTechnique(String bakingTechnique) {
         switch (bakingTechnique) {
             case "crispy":
-                this.bakingTechnique = bakingTechnique;
+                techniqueModifier = CRISPY_DEFAULT_CALORIES;
                 break;
             case "chewy":
-                this.bakingTechnique = bakingTechnique;
+                techniqueModifier = CHEWY_DEFAULT_CALORIES;
                 break;
             case "homemade":
-                this.bakingTechnique = bakingTechnique;
+                techniqueModifier = HOMEMADE_DEFAULT_CALORIES;
                 break;
             default:
                 validateFlourType();
         }
+
+        this.bakingTechnique = bakingTechnique;
+
     }
 
     private void setWeight(double weight) {
@@ -58,28 +63,10 @@ public class Dough {
         double calories = (weight * 2);
 
         calories *= this.doughModifiersByType(this.flourType);
-        calories *= this.doughModifiersByTechnique(this.bakingTechnique);
+        calories *= this.techniqueModifier;
 
         return calories;
 
-    }
-
-    private double doughModifiersByTechnique(String bakingTechnique) {
-        double techniqueModifier = 0d;
-
-        switch (bakingTechnique) {
-            case "crispy":
-                techniqueModifier = CRISPY_DEFAULT_CALORIES;
-                break;
-            case "chewy":
-                techniqueModifier = CHEWY_DEFAULT_CALORIES;
-                break;
-            case "homemade":
-                techniqueModifier = HOMEMADE_DEFAULT_CALORIES;
-                break;
-        }
-
-        return techniqueModifier;
     }
 
     private double doughModifiersByType(String flourType) {
