@@ -11,18 +11,6 @@ public class Pizza {
         this.setToppings(numberOfToppings);
     }
 
-    private void setToppings(int numberOfToppings) {
-        if (numberOfToppings < 0 || numberOfToppings > 10) {
-            validateNumberOfToppings();
-        }
-
-        this.toppings = new ArrayList<>(toppings);
-    }
-
-    private void validateNumberOfToppings() {
-        throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
-    }
-
     private void setName(String name) {
         if (name == null || name.trim().isEmpty()
                 || name.length() == 0 || name.length() > 15) {
@@ -32,8 +20,24 @@ public class Pizza {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    private void setToppings(int numberOfToppings) {
+        if (numberOfToppings < 0 || numberOfToppings > 10) {
+            validateNumberOfToppings();
+        }
+
+        this.toppings = new ArrayList<>(toppings);
+    }
+
     private void validatePizzaName() {
         throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
+    }
+
+    private void validateNumberOfToppings() {
+        throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
     }
 
 }
