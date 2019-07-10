@@ -12,10 +12,6 @@ public class Topping {
         this.setWeight(weight);
     }
 
-    private String getToppingType() {
-        return this.toppingType;
-    }
-
     private void setToppingType(String toppingType) {
         switch (toppingType) {
             case "meat":
@@ -35,6 +31,10 @@ public class Topping {
                 validateToppings(toppingType);
                 break;
         }
+    }
+
+    private String getToppingType() {
+        return this.toppingType;
     }
 
     private void setWeight(double weight) {

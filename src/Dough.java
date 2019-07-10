@@ -15,6 +15,21 @@ public class Dough {
         this.setWeight(weight);
     }
 
+    private void setFlourType(String flourType) {
+        switch (flourType) {
+            case "white":
+                this.flourType = flourType;
+                break;
+            case "wholegrain":
+                this.flourType = flourType;
+                break;
+            default:
+                validateFlourType();
+                break;
+
+        }
+    }
+
     private void setBakingTechnique(String bakingTechnique) {
         switch (bakingTechnique) {
             case "crispy":
@@ -28,21 +43,6 @@ public class Dough {
                 break;
             default:
                 validateFlourType();
-        }
-    }
-
-    private void setFlourType(String flourType) {
-        switch (flourType) {
-            case "white":
-                this.flourType = flourType;
-                break;
-            case "wholegrain":
-                this.flourType = flourType;
-                break;
-            default:
-                validateFlourType();
-                break;
-
         }
     }
 

@@ -41,6 +41,15 @@ public class Pizza {
     }
 
 
+    private void validatePizzaName() {
+        throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
+    }
+
+    private void validateNumberOfToppings() {
+        throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
+    }
+
+
     public double getOverallCalories() {
         double overallCalories = 0d;
         overallCalories += this.dough.calculateCalories();
@@ -51,13 +60,4 @@ public class Pizza {
 
         return overallCalories;
     }
-
-    private void validatePizzaName() {
-        throw new IllegalArgumentException("Pizza name should be between 1 and 15 symbols.");
-    }
-
-    private void validateNumberOfToppings() {
-        throw new IllegalArgumentException("Number of toppings should be in range [0..10].");
-    }
-
 }
